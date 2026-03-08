@@ -1,0 +1,81 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Generate secure random passwords with customizable options">
+        <title>Password Generator - Create Secure Passwords</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="app">
+            <header class="topbar">
+                <h1>Generate a <br><span>random password</span></h1>
+            </header>
+
+            <p>Never use an insecure password again.</p>
+
+            <main class="controls">
+                <button id="generate" type="button">Generate passwords</button>
+
+                <fieldset class="options">
+                    <legend>Character options</legend>
+                    <label>
+                        <input id="include-numbers" type="checkbox" checked />
+                        Numbers
+                    </label>
+                    <label>
+                        <input id="include-symbols" type="checkbox" checked />
+                        Symbols
+                    </label>
+                </fieldset>
+
+                <div class="settings">
+                    <label for="password-length">
+                        <div>
+                            Password length
+                            <span class="settings-label-hint">(use ← → keys)</span>
+                        </div>
+                        <span id="length-value" class="settings__value" aria-live="polite">15</span>
+                    </label>
+                    <input id="password-length" type="range" min="8" max="16" value="15" aria-describedby="length-help" />
+                    <span id="length-help" class="sr-only">Use arrow keys to adjust password length</span>
+                </div>
+            </main>
+
+            <div id="stroke"></div>
+            <div id="rectangle-container">
+                <div id="rectangle-el-1" class="pass-box">
+                    <div class="password-content">
+                        <span class="pass-text"></span>
+                        <div class="strength-indicator">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text"></span>
+                        </div>
+                    </div>
+                    <button class="copy-btn" type="button" aria-label="Copy password">📄 Copy</button>
+                </div>
+                <div id="rectangle-el-2" class="pass-box">
+                    <div class="password-content">
+                        <span class="pass-text"></span>
+                        <div class="strength-indicator">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text"></span>
+                        </div>
+                    </div>
+                    <button class="copy-btn" type="button" aria-label="Copy password">📄 Copy</button>
+                </div>
+            </div>
+
+            <div class="theme-toggle-portal">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light/dark theme" aria-pressed="false" title="Toggle light/dark theme">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
